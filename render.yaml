@@ -1,9 +1,33 @@
 services:
+  # Backend FastAPI Service
   - type: web
-    name: segmanta-backend
+    name: segmanta-api
     env: python
     buildCommand: "cd backend && pip install -r requirements.txt"
     startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port 10000"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
+      - key: PORT
+        value: 10000
+
+  # Frontend React Static Site
+  - type: static
+    name: segmanta-frontend
+    env: static
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: "frontend/dist"
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: segmanta-api
+          property: host
+    headers:
+      - path: "/*"
+        name: "Cache-Control"
+        value: "max-age=31536000"
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"

@@ -34,8 +34,11 @@ const UploadSection = () => {
     formData.append("file", file);
 
     try {
+      // Use dynamic base URL for production (Render) or fallback to local
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+      
       // Send to FastAPI backend
-      const response = await axios.post('http://localhost:8000/api/analyze', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/analyze`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
