@@ -16,12 +16,6 @@ services:
     name: segmanta-frontend
     buildCommand: "cd frontend && npm install && npm run build"
     staticPublishPath: "frontend/dist"
-    envVars:
-      - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: segmanta-api
-          property: host
     headers:
       - path: "/*"
         name: "Cache-Control"
