@@ -34,11 +34,12 @@ const UploadSection = () => {
     formData.append("file", file);
 
     try {
-      // Use dynamic base URL for production (Render) or fallback to local
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+      // Correct production/dev API routing for Vercel Monorepo
+      const isProd = import.meta.env.PROD;
+      const API_URL = isProd ? '/api' : 'http://localhost:8000';
       
       // Send to FastAPI backend
-      const response = await axios.post(`${API_BASE_URL}/api/analyze`, formData, {
+      const response = await axios.post(`${API_URL}/analyze`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       

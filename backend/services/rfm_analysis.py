@@ -5,8 +5,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import joblib
 
-MODEL_PATH = "segmentation_model.joblib"
-SCALER_PATH = "scaler.joblib"
+import os as _os
+_BASE_DIR = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+MODEL_PATH = _os.path.join(_BASE_DIR, "segmentation_model.joblib")
+SCALER_PATH = _os.path.join(_BASE_DIR, "scaler.joblib")
 
 def perform_rfm_segmentation(df: pd.DataFrame):
     """

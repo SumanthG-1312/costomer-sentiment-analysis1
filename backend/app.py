@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from services.rfm_analysis import perform_rfm_segmentation
 
-app = FastAPI(title="Customer Segmentation API")
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,9 +17,9 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the Customer Segmentation API"}
+    return {"Python": "on Vercel"}
 
-@app.post("/api/analyze")
+@app.post("/analyze")
 async def analyze_data(file: UploadFile = File(...)):
     if not file.filename.endswith(('.csv', '.json', '.xlsx')):
         raise HTTPException(status_code=400, detail="Only CSV, JSON, or Excel files are allowed.")

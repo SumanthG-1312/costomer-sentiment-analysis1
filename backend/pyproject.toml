@@ -1,0 +1,15 @@
+[project]
+name = "customer-segmentation-backend"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pandas",
+    "scikit-learn",
+    "joblib",
+    "python-multipart",
+    "openpyxl"
+]
+
+[tool.setuptools]
+packages = ["services"]

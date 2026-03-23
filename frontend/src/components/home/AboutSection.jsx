@@ -1,23 +1,27 @@
+import sumanthImg from '../../assets/sumanth.jpg';
+import kavyaImg from '../../assets/kavya.jpg';
+import rahulImg from '../../assets/rahul.jpg';
+
 const teamInfo = [
   {
     name: "Sumanth Gajjela",
     role: "Frontend Developer & ML Model Developer",
     desc: "Focused on building clean user interfaces and integrating data-driven models for real-world applications.",
-    img: "/images/sumanth.jpg",
+    img: sumanthImg,
     link: "https://www.linkedin.com/in/sumanth-gajjela-b6650b26b/"
   },
   {
     name: "Kunchala Kavya",
     role: "Machine Learning Engineer",
     desc: "Worked on model development, segmentation accuracy, and data analysis.",
-    img: "/images/kavya.jpg",
+    img: kavyaImg,
     link: "https://www.linkedin.com/in/kunchala-kavya-375082309/"
   },
   {
     name: "Rahul Pillem",
     role: "Backend Developer",
     desc: "Handled backend architecture, APIs, and data processing workflows.",
-    img: "/images/rahul.jpg",
+    img: rahulImg,
     link: "https://www.linkedin.com/in/rahul-pillem-1a72aa381/"
   }
 ];

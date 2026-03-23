@@ -31,13 +31,11 @@ credentials.json
 frontend/public/images/
 frontend/public/assets/images/
 
-# ML MODELS (Binary data)
+# ML MODELS
 backend/venv/
 backend/__pycache__/
-backend/*.joblib
 backend/*.pkl
 backend/*.pb
-
 # BUILD ARTIFACTS
 dist/
 build/
